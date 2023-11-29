@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./CaseStudy01Form.html">
+</head>
+<body>
+   
+<button id="ClickShowform" onclick="" class="bg-slate-300">Click me</button>
+
+
+    <script>
+        class Employee{
+            constructor(id, fullname, baseSalary, productSalary, productQuantity){
+                this.id = id;
+                this.fullname = fullname;
+                this.baseSalary = baseSalary;
+                this.productSalary = productSalary;
+                this.productQuantity = productQuantity;
+        }
+        }   
+
+        let PersonEmployee = [
+        new Employee(1,"Nguyễn Văn A",10500000, 2000000, 1000),
+        new Employee(2,"Nguyễn Văn B",10600000, 2000000, 1010),
+        new Employee(3,"Nguyễn Văn C",10700000, 2000000, 1020),
+    ]
+
+    document.getElementById("ClickShowform").addEventListener("click", function() {
+    document.getElementById("Showform").style.display = "block";
+    });
+        
+    </script>
+</body>
+</html>
