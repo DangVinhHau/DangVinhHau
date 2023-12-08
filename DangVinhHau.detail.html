@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+   
+    <div id="detail">
+        <div class="flex justify-center items-center">
+            <div class="w-1/2 flex h-[50px] ms-[100px]">
+                <div class="w-[100px]">
+                    <img src="https://viblo.asia/logo_full.svg" class="w-[70px]">
+                </div>
+                <div class="w-full">
+                    <ul class="flex justify-center">
+                        <li class="w-1/3 px-[50px]">Bài viết</li>
+                        <li class="w-1/3">Hỏi đáp</li>
+                        <li class="w-1/3 px-[50px]">Thảo luận</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-1/2 flex">
+                <input type="text" placeholder="Tìm kiếm trên Viblo">
+                <div>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+        <div></div>
+
+        <div id="list">
+            <div>
+                <img class="ms-[100px]" id="image" src="https://images.viblo.asia/e6de922a-b90d-48b5-a38e-ad43a33cf833.png" alt="" class="w-[500px]">
+            </div>
+            <div id="title"></div>
+            <div id="slug"></div>
+            <div id="category_id"></div>
+            <div id="published_at"></div>
+            <div id="system"></div>
+            <div id="transliterated"></div>
+            <div id="content"></div>
+        </div>
+    </div>
+    
+
+
+    
+    <script>
+
+        $(document).ready(()=>{
+            $.get(
+                "https://844deb07bd27403da728d3d434ab3268.api.mockbin.io/",
+                (data, textStatus, xhr)=>{
+                    console.log({data})
+                    
+                    if(xhr.status===200){
+                       showData(data);
+                    }
+                }
+            );
+            function showData(obj){
+
+                    const title = document.getElementById("title");
+                    title.innerText = obj.title;
+                    
+                    
+                    const slug = document.getElementById("slug");
+                    slug.innerText = obj.slug;
+
+                    const category_id = document.getElementById("category_id");
+                    category_id.innerText = obj.category_id;
+
+                    const published_at = document.getElementById("published_at");
+                    published_at.innerText = obj.published_at;
+
+                    const system = document.getElementById("system");
+                    system.innerText = obj.system;
+
+                    const transliterated = document.getElementById("transliterated");
+                    transliterated.innerText = obj.transliterated;
+
+                    const content = document.getElementById("content");
+                    content.innerText = obj.content;
+                
+            };
+        });
+    </script>
+</body>
+</html>
